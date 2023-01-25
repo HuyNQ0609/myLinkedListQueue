@@ -1,11 +1,20 @@
-public class MyLinkedListQueue extends Node {
+public class MyLinkedListQueue {
     private Node head;
     private Node tail;
 
-    public MyLinkedListQueue(int key) {
-        super(key);
+    public MyLinkedListQueue() {
         this.head = null;
         this.tail = null;
+    }
+
+    public void enqueue(int key) {
+        Node temp = new Node(key);
+        if (this.tail == null) {
+            this.head = this.tail = temp;
+            return;
+        }
+        this.tail.next = temp;
+        this.tail = temp;
     }
 
     public Node dequeue() {
